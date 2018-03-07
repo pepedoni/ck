@@ -11,7 +11,7 @@ public class CKNumber {
 
 	private int dit;
 	private int noc;
-	private int wmc;
+	private int mcCabe;
 	private int cbo;
 	private int lcom;
 	private int rfc;
@@ -30,12 +30,13 @@ public class CKNumber {
 	private int nUniqueOperands;
 	private int nOperators;
 	private int nUniqueOperators;
-
 	private int noConstructors;
-
+	private int nNestedBlocks;
+	private double averageBlockDepth;
+	
 	private Map<String, Integer> specific;
 	private boolean error;
-
+	
 	public CKNumber(String file, String className, String type) {
 		this.file = file;
 		this.className = className;
@@ -97,12 +98,12 @@ public class CKNumber {
 		return noc;
 	}
 
-	public void setWmc(int cc) {
-		this.wmc = cc;
+	public void setMcCabe(int cc) {
+		this.mcCabe = cc;
 	}
 
-	public int getWmc() {
-		return wmc;
+	public int getMcCabe() {
+		return mcCabe;
 	}
 
 	public int getCbo() {
@@ -248,6 +249,20 @@ public class CKNumber {
 		this.noConstructors = constructors;
 	}
 
+	/**
+	 * @return the nBlocks
+	 */
+	public int getNNestedBlocks() {
+		return nNestedBlocks;
+	}
+
+	/**
+	 * @param nBlocks the nBlocks to set
+	 */
+	public void setNNestedBlocks(int nBlocks) {
+		this.nNestedBlocks = nBlocks;
+	}
+
 	public boolean isError() {
 		return error;
 	}
@@ -256,17 +271,30 @@ public class CKNumber {
 		this.error = true;
 	}
 
-	@Override
-	public String toString() {
-		return "CKNumber [file=" + file + ", className=" + className + ", type=" + type + ", dit=" + dit + ", noc="
-				+ noc + ", wmc=" + wmc + ", cbo=" + cbo + ", lcom=" + lcom + ", rfc=" + rfc + ", nom=" + nom
-				+ ", noConstructors=" + noConstructors + ", nopm=" + nopm + ", nosm=" + nosm + ", nof=" + nof
-				+ ", nopf=" + nopf + ", nosf=" + nosf + ", nosi=" + nosi + ", loc=" + loc + ", nOperads=" + nOperands
-				+ ", nUniqueOperads=" + nUniqueOperands + ", nOperators=" + nOperators + ", nUniqueOperators="
-				+ nUniqueOperators + ", specific=" + specific + ", error=" + error + "]";
-	}
-
 	public void incNoc(int value) {
 		this.noc += value;
 	}
+	
+	public double getAverageBlockDepth() {
+		return averageBlockDepth;		
+	}
+	
+	public void setAverageBlockDepth(double abd) {
+		averageBlockDepth = abd;		
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CKNumber [file=" + file + ", className=" + className + ", type=" + type + ", dit=" + dit + ", noc="
+				+ noc + ", mcCabe=" + mcCabe + ", cbo=" + cbo + ", lcom=" + lcom + ", rfc=" + rfc + ", nom=" + nom
+				+ ", nopm=" + nopm + ", nosm=" + nosm + ", nof=" + nof + ", nopf=" + nopf + ", nosf=" + nosf + ", nosi="
+				+ nosi + ", loc=" + loc + ", nOperands=" + nOperands + ", nUniqueOperands=" + nUniqueOperands
+				+ ", nOperators=" + nOperators + ", nUniqueOperators=" + nUniqueOperators + ", noConstructors="
+				+ noConstructors + ", nNestedBlocks=" + nNestedBlocks + ", averageBlockDepth=" + averageBlockDepth
+				+ ", specific=" + specific + ", error=" + error + "]";
+	}
+		
 }

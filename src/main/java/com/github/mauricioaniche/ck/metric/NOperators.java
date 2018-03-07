@@ -11,7 +11,6 @@ import org.eclipse.jdt.core.dom.PrefixExpression;
 
 import com.github.mauricioaniche.ck.CKNumber;
 import com.github.mauricioaniche.ck.CKReport;
-import com.github.mauricioaniche.ck.metric.aggregated.NUniqueOperators;
 
 /**
  * @author klerisson

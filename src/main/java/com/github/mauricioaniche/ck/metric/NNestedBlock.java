@@ -18,16 +18,30 @@ import com.github.mauricioaniche.ck.CKReport;
  * @author klerisson
  *
  */
-public class NBlock extends ASTVisitor implements Metric {
+public class NNestedBlock extends ASTVisitor implements Metric {
 
-	private int nestedBlocks = 1;
+	private int nestedBlocks = 0;
 	
 	@Override
 	public boolean visit(Block node) {
-		List<Statement> list = node.statements();
-		for(Statement st : list) {
-			if(st.getNodeType() == ASTNode.BLOCK)
+		
+		@SuppressWarnings("unchecked")
+		List<Statement> stList = node.statements();
+		for(Statement st : stList) {
+			switch (st.getNodeType()) {
+			case ASTNode.BLOCK:
+			case ASTNode.IF_STATEMENT:
+			case ASTNode.FOR_STATEMENT:
+			case ASTNode.ENHANCED_FOR_STATEMENT:
+			case ASTNode.DO_STATEMENT:
+			case ASTNode.SWITCH_CASE:
+			case ASTNode.WHILE_STATEMENT:
+			case ASTNode.TRY_STATEMENT:
 				nestedBlocks++;
+				break;
+			default:
+				break;
+			}
 		}
 		return super.visit(node);
 	}
@@ -39,7 +53,10 @@ public class NBlock extends ASTVisitor implements Metric {
 
 	@Override
 	public void setResult(CKNumber result) {
-		result.setRfc(nestedBlocks);
+		if(nestedBlocks == 0)
+			nestedBlocks++;
+		
+		result.setNNestedBlocks(nestedBlocks);
 		
 	}
 }

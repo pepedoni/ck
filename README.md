@@ -43,8 +43,7 @@ invocations in a class. As invocations are resolved via static analysis,
 this implementation fails when a method has overloads with same number of parameters,
 but different types.
 
-- *WMC (Weight Method Class)* or *McCabe's complexity*. It counts the number
-of branch instructions in a class.
+- *McCabe's complexity*. It counts the number of branch instructions in a class.
 
 - *LOC (Lines of code)*: It counts the lines of count, ignoring
 empty lines.

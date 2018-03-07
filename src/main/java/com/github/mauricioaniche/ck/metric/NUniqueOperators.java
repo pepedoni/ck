@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.github.mauricioaniche.ck.metric.aggregated;
+package com.github.mauricioaniche.ck.metric;
 
 import java.util.HashSet;
 import java.util.Set;

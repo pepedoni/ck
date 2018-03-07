@@ -10,7 +10,6 @@ import org.eclipse.jdt.core.dom.SimpleName;
 
 import com.github.mauricioaniche.ck.CKNumber;
 import com.github.mauricioaniche.ck.CKReport;
-import com.github.mauricioaniche.ck.metric.aggregated.NUniqueOperands;
 
 /**
  * Number of operands

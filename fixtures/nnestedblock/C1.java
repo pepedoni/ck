@@ -1,4 +1,4 @@
-package nblock;
+package nnestedblock;
 
 public class C1 {
 
@@ -8,8 +8,9 @@ public class C1 {
 		if (a > 10) {
 			a++;
 			for(;;) {
-				
+				return;
 			}
+			
 		} else {
 			a--;
 			for (int i = 0; i < 10; i++) {
@@ -18,15 +19,5 @@ public class C1 {
 				
 			}
 		}
-	}
-
-	public void m2() {
-	
-			if (a > 10) {
-				a++;
-			} else {
-				a--;
-			}
-		
 	}
 }

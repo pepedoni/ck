@@ -17,7 +17,7 @@ import org.eclipse.jdt.core.dom.WhileStatement;
 import com.github.mauricioaniche.ck.CKNumber;
 import com.github.mauricioaniche.ck.CKReport;
 
-public class WMC extends ASTVisitor implements Metric {
+public class McCabe extends ASTVisitor implements Metric {
 
 	protected int cc = 0;
 	
@@ -106,7 +106,7 @@ public class WMC extends ASTVisitor implements Metric {
 
 	@Override
 	public void setResult(CKNumber result) {
-		result.setWmc(cc);
+		result.setMcCabe(cc);
 	}
     
 

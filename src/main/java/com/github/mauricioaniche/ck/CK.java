@@ -6,12 +6,31 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 
-import com.github.mauricioaniche.ck.metric.*;
 import org.apache.log4j.Logger;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 
+import com.github.mauricioaniche.ck.metric.CBO;
+import com.github.mauricioaniche.ck.metric.DIT;
+import com.github.mauricioaniche.ck.metric.LCOM;
+import com.github.mauricioaniche.ck.metric.Metric;
+import com.github.mauricioaniche.ck.metric.NNestedBlock;
+import com.github.mauricioaniche.ck.metric.NOC;
+import com.github.mauricioaniche.ck.metric.NOCExtras;
+import com.github.mauricioaniche.ck.metric.NOF;
+import com.github.mauricioaniche.ck.metric.NOM;
+import com.github.mauricioaniche.ck.metric.NOPF;
+import com.github.mauricioaniche.ck.metric.NOPM;
+import com.github.mauricioaniche.ck.metric.NOSF;
+import com.github.mauricioaniche.ck.metric.NOSI;
+import com.github.mauricioaniche.ck.metric.NOSM;
+import com.github.mauricioaniche.ck.metric.NOperands;
+import com.github.mauricioaniche.ck.metric.NOperators;
+import com.github.mauricioaniche.ck.metric.RFC;
+import com.github.mauricioaniche.ck.metric.McCabe;
+import com.github.mauricioaniche.ck.metric.composed.AverageBlockDepth;
+import com.github.mauricioaniche.ck.metric.composed.ComposedMetric;
 import com.google.common.collect.Lists;
 
 public class CK {
@@ -34,13 +53,15 @@ public class CK {
 	}
 
     private final NOCExtras extras;
-
+    public List<ComposedMetric> composedMetrics;
+    
     public List<Callable<Metric>> pluggedMetrics;
 	private static Logger log = Logger.getLogger(CK.class);
 
 	public CK() {
 		this.pluggedMetrics = new ArrayList<>();
 		this.extras = new NOCExtras();
+		this.composedMetrics = defaultComposedMetrics();
 	}
 	
 	public CK plug(Callable<Metric> metric) {
@@ -76,6 +97,10 @@ public class CK {
         CKReport report = storage.getReport();
         extras.update(report);
         
+        // Composed metrics
+        for(ComposedMetric cm : this.composedMetrics) {
+        	cm.update(report);
+        }
         
         return report;
     }
@@ -88,11 +113,15 @@ public class CK {
 	}
 
 	private List<Metric> defaultMetrics() {
-		return new ArrayList<>(Arrays.asList(new DIT(), new NOC(extras), new WMC(), new CBO(), new LCOM(), new RFC(), new NOM(),
+		return new ArrayList<>(Arrays.asList(new DIT(), new NOC(extras), new McCabe(), new CBO(), new LCOM(), new RFC(), new NOM(),
 				new NOF(), new NOPF(), new NOSF(),
-				new NOPM(), new NOSM(), new NOSI(), new NOperands(), new NOperators()));
+				new NOPM(), new NOSM(), new NOSI(), new NOperands(), new NOperators(), new NNestedBlock()));
 	}
 
+	private List<ComposedMetric> defaultComposedMetrics() {
+		return new ArrayList<>(Arrays.asList(new AverageBlockDepth()));
+	}
+	
 	private List<Metric> userMetrics() {
 		try {
 			List<Metric> userMetrics = new ArrayList<Metric>();

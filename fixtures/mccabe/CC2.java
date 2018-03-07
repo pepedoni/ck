@@ -1,4 +1,4 @@
-package wmc;
+package mccabe;
 
 public class CC2 {
 
