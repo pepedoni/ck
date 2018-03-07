@@ -28,6 +28,7 @@ import com.github.mauricioaniche.ck.metric.NOSM;
 import com.github.mauricioaniche.ck.metric.NOperands;
 import com.github.mauricioaniche.ck.metric.NOperators;
 import com.github.mauricioaniche.ck.metric.RFC;
+import com.github.mauricioaniche.ck.metric.WMC;
 import com.github.mauricioaniche.ck.metric.McCabe;
 import com.github.mauricioaniche.ck.metric.composed.AverageBlockDepth;
 import com.github.mauricioaniche.ck.metric.composed.ComposedMetric;
@@ -114,7 +115,7 @@ public class CK {
 
 	private List<Metric> defaultMetrics() {
 		return new ArrayList<>(Arrays.asList(new DIT(), new NOC(extras), new McCabe(), new CBO(), new LCOM(), new RFC(), new NOM(),
-				new NOF(), new NOPF(), new NOSF(),
+				new NOF(), new NOPF(), new NOSF(), new WMC(),
 				new NOPM(), new NOSM(), new NOSI(), new NOperands(), new NOperators(), new NNestedBlock()));
 	}
 

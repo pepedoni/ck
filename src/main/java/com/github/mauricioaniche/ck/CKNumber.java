@@ -33,6 +33,7 @@ public class CKNumber {
 	private int noConstructors;
 	private int nNestedBlocks;
 	private double averageBlockDepth;
+	private int wmc;
 	
 	private Map<String, Integer> specific;
 	private boolean error;
@@ -283,6 +284,20 @@ public class CKNumber {
 		averageBlockDepth = abd;		
 	}
 
+	/**
+	 * @return the wmc
+	 */
+	public int getWMC() {
+		return wmc;
+	}
+
+	/**
+	 * @param wmc the wmc to set
+	 */
+	public void setWMC(int wmc) {
+		this.wmc = wmc;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -294,7 +309,8 @@ public class CKNumber {
 				+ nosi + ", loc=" + loc + ", nOperands=" + nOperands + ", nUniqueOperands=" + nUniqueOperands
 				+ ", nOperators=" + nOperators + ", nUniqueOperators=" + nUniqueOperators + ", noConstructors="
 				+ noConstructors + ", nNestedBlocks=" + nNestedBlocks + ", averageBlockDepth=" + averageBlockDepth
-				+ ", specific=" + specific + ", error=" + error + "]";
+				+ ", wmc=" + wmc + ", specific=" + specific + ", error=" + error + "]";
 	}
-		
+
+	
 }
