@@ -25,18 +25,25 @@ public class CKNumber {
 
 	private int nosi;
 	private int loc;
-	
+
+	private int nOperands;
+	private int nUniqueOperands;
+	private int nOperators;
+	private int nUniqueOperators;
+
+	private int noConstructors;
+
 	private Map<String, Integer> specific;
-	private boolean error; 
+	private boolean error;
 
 	public CKNumber(String file, String className, String type) {
 		this.file = file;
 		this.className = className;
 		this.type = type;
-		
+
 		this.specific = new HashMap<String, Integer>();
 	}
-	
+
 	public String getFile() {
 		return file;
 	}
@@ -85,7 +92,7 @@ public class CKNumber {
 	public void incNoc() {
 		incNoc(1);
 	}
-	
+
 	public int getNoc() {
 		return noc;
 	}
@@ -93,11 +100,10 @@ public class CKNumber {
 	public void setWmc(int cc) {
 		this.wmc = cc;
 	}
-	
+
 	public int getWmc() {
 		return wmc;
 	}
-
 
 	public int getCbo() {
 		return cbo;
@@ -110,6 +116,7 @@ public class CKNumber {
 	public void setLcom(int lcom) {
 		this.lcom = lcom;
 	}
+
 	public int getLcom() {
 		return lcom;
 	}
@@ -117,7 +124,7 @@ public class CKNumber {
 	public void setRfc(int rfc) {
 		this.rfc = rfc;
 	}
-	
+
 	public int getRfc() {
 		return rfc;
 	}
@@ -125,15 +132,17 @@ public class CKNumber {
 	public void setNom(int nom) {
 		this.nom = nom;
 	}
+
 	public int getNom() {
 		return nom;
 	}
-	
+
 	public int getSpecific(String key) {
-		if(!specific.containsKey(key)) return -1;
+		if (!specific.containsKey(key))
+			return -1;
 		return specific.get(key);
 	}
-	
+
 	public void addSpecific(String key, int value) {
 		specific.put(key, value);
 	}
@@ -181,7 +190,7 @@ public class CKNumber {
 	public void setNosf(int nosf) {
 		this.nosf = nosf;
 	}
-	
+
 	public int getNosi() {
 		return nosi;
 	}
@@ -198,11 +207,51 @@ public class CKNumber {
 		this.loc = loc;
 	}
 
+	public int getNOperands() {
+		return nOperands;
+	}
+
+	public void setNOperands(int operands) {
+		this.nOperands = operands;
+
+	}
+
+	public int getNUniqueOperands() {
+		return nUniqueOperands;
+	}
+
+	public void setNUniqueOperands(int nUniqueOperands) {
+		this.nUniqueOperands = nUniqueOperands;
+	}
+
+	public int getNOperators() {
+		return nOperators;
+	}
+
+	public void setNOperators(int nOperators) {
+		this.nOperators = nOperators;
+	}
+
+	public int getNUniqueOperators() {
+		return nUniqueOperators;
+	}
+
+	public void setNUniqueOperators(int nUniqueOperators) {
+		this.nUniqueOperators = nUniqueOperators;
+	}
+
+	public int getNoConstructors() {
+		return noConstructors;
+	}
+
+	public void setNoConstructors(int constructors) {
+		this.noConstructors = constructors;
+	}
 
 	public boolean isError() {
 		return error;
 	}
-	
+
 	public void error() {
 		this.error = true;
 	}
@@ -210,13 +259,14 @@ public class CKNumber {
 	@Override
 	public String toString() {
 		return "CKNumber [file=" + file + ", className=" + className + ", type=" + type + ", dit=" + dit + ", noc="
-				+ noc + ", wmc=" + wmc + ", cbo=" + cbo + ", lcom=" + lcom + ", rfc=" + rfc + ", nom=" + nom + ", nopm="
-				+ nopm + ", nosm=" + nosm + ", nof=" + nof + ", nopf=" + nopf + ", nosf=" + nosf + ", nosi=" + nosi
-				+ ", loc=" + loc + ", specific=" + specific + ", error=" + error + "]";
+				+ noc + ", wmc=" + wmc + ", cbo=" + cbo + ", lcom=" + lcom + ", rfc=" + rfc + ", nom=" + nom
+				+ ", noConstructors=" + noConstructors + ", nopm=" + nopm + ", nosm=" + nosm + ", nof=" + nof
+				+ ", nopf=" + nopf + ", nosf=" + nosf + ", nosi=" + nosi + ", loc=" + loc + ", nOperads=" + nOperands
+				+ ", nUniqueOperads=" + nUniqueOperands + ", nOperators=" + nOperators + ", nUniqueOperators="
+				+ nUniqueOperators + ", specific=" + specific + ", error=" + error + "]";
 	}
 
-
-	public void incNoc (int value) {
+	public void incNoc(int value) {
 		this.noc += value;
 	}
 }

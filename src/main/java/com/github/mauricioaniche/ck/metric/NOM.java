@@ -10,10 +10,13 @@ import com.github.mauricioaniche.ck.CKReport;
 public class NOM extends ASTVisitor implements Metric {
 
 	private int methods;
-
+	private int constructors;
+	
 	@Override
 	public boolean visit(MethodDeclaration node) {
 		methods++;
+		if(node.isConstructor())
+			constructors++;
 
 		return false;
 	}
@@ -26,5 +29,6 @@ public class NOM extends ASTVisitor implements Metric {
 	@Override
 	public void setResult(CKNumber result) {
 		result.setNom(methods);
+		result.setNoConstructors(constructors);
 	}
 }

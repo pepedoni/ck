@@ -75,6 +75,8 @@ public class CK {
 		log.info("Finished parsing");
         CKReport report = storage.getReport();
         extras.update(report);
+        
+        
         return report;
     }
 	
@@ -88,7 +90,7 @@ public class CK {
 	private List<Metric> defaultMetrics() {
 		return new ArrayList<>(Arrays.asList(new DIT(), new NOC(extras), new WMC(), new CBO(), new LCOM(), new RFC(), new NOM(),
 				new NOF(), new NOPF(), new NOSF(),
-				new NOPM(), new NOSM(), new NOSI()));
+				new NOPM(), new NOSM(), new NOSI(), new NOperands(), new NOperators()));
 	}
 
 	private List<Metric> userMetrics() {
