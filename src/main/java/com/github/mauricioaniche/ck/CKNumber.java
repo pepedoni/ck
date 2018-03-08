@@ -6,6 +6,7 @@ import java.util.Map;
 public class CKNumber {
 
 	private String file;
+	private String packageName;
 	private String className;
 	private String type;
 
@@ -38,8 +39,9 @@ public class CKNumber {
 	private Map<String, Integer> specific;
 	private boolean error;
 	
-	public CKNumber(String file, String className, String type) {
+	public CKNumber(String file, String packageName, String className, String type) {
 		this.file = file;
+		this.packageName = packageName;
 		this.className = className;
 		this.type = type;
 
@@ -87,6 +89,10 @@ public class CKNumber {
 		this.file = file;
 	}
 
+	public String getPackageName() {
+		return packageName;
+	}
+	
 	public String getClassName() {
 		return className;
 	}
@@ -303,14 +309,14 @@ public class CKNumber {
 	 */
 	@Override
 	public String toString() {
-		return "CKNumber [file=" + file + ", className=" + className + ", type=" + type + ", dit=" + dit + ", noc="
-				+ noc + ", mcCabe=" + mcCabe + ", cbo=" + cbo + ", lcom=" + lcom + ", rfc=" + rfc + ", nom=" + nom
-				+ ", nopm=" + nopm + ", nosm=" + nosm + ", nof=" + nof + ", nopf=" + nopf + ", nosf=" + nosf + ", nosi="
-				+ nosi + ", loc=" + loc + ", nOperands=" + nOperands + ", nUniqueOperands=" + nUniqueOperands
-				+ ", nOperators=" + nOperators + ", nUniqueOperators=" + nUniqueOperators + ", noConstructors="
-				+ noConstructors + ", nNestedBlocks=" + nNestedBlocks + ", averageBlockDepth=" + averageBlockDepth
-				+ ", wmc=" + wmc + ", specific=" + specific + ", error=" + error + "]";
+		return "CKNumber [file=" + file + ", packageName=" + packageName + ", className=" + className + ", type=" + type
+				+ ", dit=" + dit + ", noc=" + noc + ", mcCabe=" + mcCabe + ", cbo=" + cbo + ", lcom=" + lcom + ", rfc="
+				+ rfc + ", nom=" + nom + ", nopm=" + nopm + ", nosm=" + nosm + ", nof=" + nof + ", nopf=" + nopf
+				+ ", nosf=" + nosf + ", nosi=" + nosi + ", loc=" + loc + ", nOperands=" + nOperands
+				+ ", nUniqueOperands=" + nUniqueOperands + ", nOperators=" + nOperators + ", nUniqueOperators="
+				+ nUniqueOperators + ", noConstructors=" + noConstructors + ", nNestedBlocks=" + nNestedBlocks
+				+ ", averageBlockDepth=" + averageBlockDepth + ", wmc=" + wmc + ", specific=" + specific + ", error="
+				+ error + "]";
 	}
-
 	
 }
