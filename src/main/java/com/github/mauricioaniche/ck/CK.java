@@ -14,6 +14,7 @@ import org.eclipse.jdt.core.dom.ASTParser;
 import com.github.mauricioaniche.ck.metric.CBO;
 import com.github.mauricioaniche.ck.metric.DIT;
 import com.github.mauricioaniche.ck.metric.LCOM;
+import com.github.mauricioaniche.ck.metric.McCabe;
 import com.github.mauricioaniche.ck.metric.Metric;
 import com.github.mauricioaniche.ck.metric.NNestedBlock;
 import com.github.mauricioaniche.ck.metric.NOC;
@@ -29,8 +30,10 @@ import com.github.mauricioaniche.ck.metric.NOperands;
 import com.github.mauricioaniche.ck.metric.NOperators;
 import com.github.mauricioaniche.ck.metric.RFC;
 import com.github.mauricioaniche.ck.metric.WMC;
-import com.github.mauricioaniche.ck.metric.McCabe;
+import com.github.mauricioaniche.ck.metric.composed.Abstractness;
+import com.github.mauricioaniche.ck.metric.composed.AverageAttributesClass;
 import com.github.mauricioaniche.ck.metric.composed.AverageBlockDepth;
+import com.github.mauricioaniche.ck.metric.composed.AverageConstructorsClass;
 import com.github.mauricioaniche.ck.metric.composed.ComposedMetric;
 import com.google.common.collect.Lists;
 
@@ -120,7 +123,7 @@ public class CK {
 	}
 
 	private List<ComposedMetric> defaultComposedMetrics() {
-		return new ArrayList<>(Arrays.asList(new AverageBlockDepth()));
+		return new ArrayList<>(Arrays.asList(new AverageBlockDepth(), new AverageAttributesClass(), new Abstractness(), new AverageConstructorsClass()));
 	}
 	
 	private List<Metric> userMetrics() {

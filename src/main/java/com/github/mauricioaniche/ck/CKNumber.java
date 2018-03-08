@@ -13,7 +13,11 @@ public class CKNumber {
 	private int dit;
 	private int noc;
 	private int mcCabe;
+	
 	private int cbo;
+	private int efferentCoupling;
+	private int afferentCoupling;
+	
 	private int lcom;
 	private int rfc;
 	private int nom;
@@ -23,9 +27,10 @@ public class CKNumber {
 	private int nof;
 	private int nopf;
 	private int nosf;
-
 	private int nosi;
 	private int loc;
+	private int nParameter;
+	private int nComments;
 
 	private int nOperands;
 	private int nUniqueOperands;
@@ -33,8 +38,26 @@ public class CKNumber {
 	private int nUniqueOperators;
 	private int noConstructors;
 	private int nNestedBlocks;
-	private double averageBlockDepth;
 	private int wmc;
+	private int programLength;
+	private int programVocabulary;
+	private int programVolume;
+	private int noTypesPackage;
+	
+	private double averageBlockDepth;
+	private double averageAttributesClass;
+	private double averageConstructorsClass;
+	private double averageLOCMethod;
+	private double averageNOM;
+	private double averageNParameter;
+	
+	private double abstractness;
+	private double instability;
+	private double normalizedDistance;
+	private double difficultLevel;
+	private double effort;
+	private double timeToImplement;
+	private double programLevel;
 	
 	private Map<String, Integer> specific;
 	private boolean error;
@@ -304,19 +327,306 @@ public class CKNumber {
 		this.wmc = wmc;
 	}
 
+	/**
+	 * @return the averageAttributesClass
+	 */
+	public double getAverageAttributesClass() {
+		return averageAttributesClass;
+	}
+
+	/**
+	 * @param averageAttributesClass the averageAttributesClass to set
+	 */
+	public void setAverageAttributesClass(double averageAttributesClass) {
+		this.averageAttributesClass = averageAttributesClass;
+	}
+	
+	/**
+	 * @return the averageConstructorsClass
+	 */
+	public double getAverageConstructorsClass() {
+		return averageConstructorsClass;
+	}
+
+	/**
+	 * @param averageConstructorsClass the averageConstructorsClass to set
+	 */
+	public void setAverageConstructorsClass(double averageConstructorsClass) {
+		this.averageConstructorsClass = averageConstructorsClass;
+	}
+
+	/**
+	 * @return the abstractness
+	 */
+	public double getAbstractness() {
+		return abstractness;
+	}
+
+	/**
+	 * @param abstractness the abstractness to set
+	 */
+	public void setAbstractness(double abstractness) {
+		this.abstractness = abstractness;
+	}
+
+	/**
+	 * @return the efferentCoupling
+	 */
+	public int getEfferentCoupling() {
+		return efferentCoupling;
+	}
+
+	/**
+	 * @param efferentCoupling the efferentCoupling to set
+	 */
+	public void setEfferentCoupling(int efferentCoupling) {
+		this.efferentCoupling = efferentCoupling;
+	}
+
+	/**
+	 * @return the afferentCoupling
+	 */
+	public int getAfferentCoupling() {
+		return afferentCoupling;
+	}
+
+	/**
+	 * @param afferentCoupling the afferentCoupling to set
+	 */
+	public void setAfferentCoupling(int afferentCoupling) {
+		this.afferentCoupling = afferentCoupling;
+	}
+
+	/**
+	 * @return the instability
+	 */
+	public double getInstability() {
+		return instability;
+	}
+
+	/**
+	 * @param instability the instability to set
+	 */
+	public void setInstability(double instability) {
+		this.instability = instability;
+	}
+
+	/**
+	 * @return the normalizedDistance
+	 */
+	public double getNormalizedDistance() {
+		return normalizedDistance;
+	}
+
+	/**
+	 * @param normalizedDistance the normalizedDistance to set
+	 */
+	public void setNormalizedDistance(double normalizedDistance) {
+		this.normalizedDistance = normalizedDistance;
+	}
+
+	/**
+	 * @return the difficultLevel
+	 */
+	public double getDifficultLevel() {
+		return difficultLevel;
+	}
+
+	/**
+	 * @param difficultLevel the difficultLevel to set
+	 */
+	public void setDifficultLevel(double difficultLevel) {
+		this.difficultLevel = difficultLevel;
+	}
+
+	/**
+	 * @return the programLength
+	 */
+	public int getProgramLength() {
+		return programLength;
+	}
+
+	/**
+	 * @param programLength the programLength to set
+	 */
+	public void setProgramLength(int programLength) {
+		this.programLength = programLength;
+	}
+
+	/**
+	 * @return the programVocabulary
+	 */
+	public int getProgramVocabulary() {
+		return programVocabulary;
+	}
+
+	/**
+	 * @param programVocabulary the programVocabulary to set
+	 */
+	public void setProgramVocabulary(int programVocabulary) {
+		this.programVocabulary = programVocabulary;
+	}
+
+	/**
+	 * @return the programVolume
+	 */
+	public int getProgramVolume() {
+		return programVolume;
+	}
+
+	/**
+	 * @param programVolume the programVolume to set
+	 */
+	public void setProgramVolume(int programVolume) {
+		this.programVolume = programVolume;
+	}
+
+	/**
+	 * @return the effort
+	 */
+	public double getEffort() {
+		return effort;
+	}
+
+	/**
+	 * @param effort the effort to set
+	 */
+	public void setEffort(double effort) {
+		this.effort = effort;
+	}
+
+	/**
+	 * @return the timeToImplement
+	 */
+	public double getTimeToImplement() {
+		return timeToImplement;
+	}
+
+	/**
+	 * @param timeToImplement the timeToImplement to set
+	 */
+	public void setTimeToImplement(double timeToImplement) {
+		this.timeToImplement = timeToImplement;
+	}
+
+	/**
+	 * @return the programLevel
+	 */
+	public double getProgramLevel() {
+		return programLevel;
+	}
+
+	/**
+	 * @param programLevel the programLevel to set
+	 */
+	public void setProgramLevel(double programLevel) {
+		this.programLevel = programLevel;
+	}
+
+	/**
+	 * @return the averageLOCMethod
+	 */
+	public double getAverageLOCMethod() {
+		return averageLOCMethod;
+	}
+
+	/**
+	 * @param averageLOCMethod the averageLOCMethod to set
+	 */
+	public void setAverageLOCMethod(double averageLOCMethod) {
+		this.averageLOCMethod = averageLOCMethod;
+	}
+
+	/**
+	 * @return the averageNOM
+	 */
+	public double getAverageNOM() {
+		return averageNOM;
+	}
+
+	/**
+	 * @param averageNOM the averageNOM to set
+	 */
+	public void setAverageNOM(double averageNOM) {
+		this.averageNOM = averageNOM;
+	}
+
+	/**
+	 * @return the nParameter
+	 */
+	public int getNParameter() {
+		return nParameter;
+	}
+
+	/**
+	 * @param nParameter the nParameter to set
+	 */
+	public void setNParameter(int nParameter) {
+		this.nParameter = nParameter;
+	}
+
+	/**
+	 * @return the averageNParameter
+	 */
+	public double getAverageNParameter() {
+		return averageNParameter;
+	}
+
+	/**
+	 * @param averageNParameter the averageNParameter to set
+	 */
+	public void setAverageNParameter(double averageNParameter) {
+		this.averageNParameter = averageNParameter;
+	}
+
+	/**
+	 * @return the noTypesPackage
+	 */
+	public int getNOTypesPackage() {
+		return noTypesPackage;
+	}
+
+	/**
+	 * @param noTypesPackage the noTypesPackage to set
+	 */
+	public void setNOTypesPackage(int noTypesPackage) {
+		this.noTypesPackage = noTypesPackage;
+	}
+
+	/**
+	 * @return the nComments
+	 */
+	public int getNComments() {
+		return nComments;
+	}
+
+	/**
+	 * @param nComments the nComments to set
+	 */
+	public void setNComments(int nComments) {
+		this.nComments = nComments;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "CKNumber [file=" + file + ", packageName=" + packageName + ", className=" + className + ", type=" + type
-				+ ", dit=" + dit + ", noc=" + noc + ", mcCabe=" + mcCabe + ", cbo=" + cbo + ", lcom=" + lcom + ", rfc="
-				+ rfc + ", nom=" + nom + ", nopm=" + nopm + ", nosm=" + nosm + ", nof=" + nof + ", nopf=" + nopf
-				+ ", nosf=" + nosf + ", nosi=" + nosi + ", loc=" + loc + ", nOperands=" + nOperands
-				+ ", nUniqueOperands=" + nUniqueOperands + ", nOperators=" + nOperators + ", nUniqueOperators="
-				+ nUniqueOperators + ", noConstructors=" + noConstructors + ", nNestedBlocks=" + nNestedBlocks
-				+ ", averageBlockDepth=" + averageBlockDepth + ", wmc=" + wmc + ", specific=" + specific + ", error="
-				+ error + "]";
+				+ ", dit=" + dit + ", noc=" + noc + ", mcCabe=" + mcCabe + ", cbo=" + cbo + ", efferentCoupling="
+				+ efferentCoupling + ", afferentCoupling=" + afferentCoupling + ", lcom=" + lcom + ", rfc=" + rfc
+				+ ", nom=" + nom + ", nopm=" + nopm + ", nosm=" + nosm + ", nof=" + nof + ", nopf=" + nopf + ", nosf="
+				+ nosf + ", nosi=" + nosi + ", loc=" + loc + ", nParameter=" + nParameter + ", nComments=" + nComments
+				+ ", nOperands=" + nOperands + ", nUniqueOperands=" + nUniqueOperands + ", nOperators=" + nOperators
+				+ ", nUniqueOperators=" + nUniqueOperators + ", noConstructors=" + noConstructors + ", nNestedBlocks="
+				+ nNestedBlocks + ", wmc=" + wmc + ", programLength=" + programLength + ", programVocabulary="
+				+ programVocabulary + ", programVolume=" + programVolume + ", noTypesPackage=" + noTypesPackage
+				+ ", averageBlockDepth=" + averageBlockDepth + ", averageAttributesClass=" + averageAttributesClass
+				+ ", averageConstructorsClass=" + averageConstructorsClass + ", averageLOCMethod=" + averageLOCMethod
+				+ ", averageNOM=" + averageNOM + ", averageNParameter=" + averageNParameter + ", abstractness="
+				+ abstractness + ", instability=" + instability + ", normalizedDistance=" + normalizedDistance
+				+ ", difficultLevel=" + difficultLevel + ", effort=" + effort + ", timeToImplement=" + timeToImplement
+				+ ", programLevel=" + programLevel + ", specific=" + specific + ", error=" + error + "]";
 	}
-	
+
 }

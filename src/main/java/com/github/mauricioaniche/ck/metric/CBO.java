@@ -1,7 +1,10 @@
 package com.github.mauricioaniche.ck.metric;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.ArrayCreation;
@@ -29,6 +32,7 @@ import com.github.mauricioaniche.ck.CKReport;
 public class CBO extends ASTVisitor implements Metric {
 
 	private Set<String> coupling = new HashSet<String>();
+	private List<String> packageReferences = new ArrayList<>();
 
 	@Override
 	public boolean visit(VariableDeclarationStatement node) {
@@ -54,6 +58,7 @@ public class CBO extends ASTVisitor implements Metric {
 		return super.visit(node);
 	}
 
+	@Override
 	public boolean visit(ReturnStatement node) {
 		if (node.getExpression() != null) {
 			coupleTo(node.getExpression().resolveTypeBinding());
@@ -67,12 +72,14 @@ public class CBO extends ASTVisitor implements Metric {
 		coupleTo(node.getType().resolveBinding());
 		return super.visit(node);
 	}
-	
+
+	@Override
 	public boolean visit(ThrowStatement node) {
 		coupleTo(node.getExpression().resolveTypeBinding());
 		return super.visit(node);
 	}
 
+	@Override
 	public boolean visit(TypeDeclaration node) {
 		ITypeBinding type = node.resolveBinding();
 
@@ -87,6 +94,7 @@ public class CBO extends ASTVisitor implements Metric {
 		return super.visit(node);
 	}
 
+	@Override
 	public boolean visit(MethodDeclaration node) {
 
 		IMethodBinding method = node.resolveBinding();
@@ -118,21 +126,25 @@ public class CBO extends ASTVisitor implements Metric {
 		return super.visit(node);
 	}
 
+	@Override
 	public boolean visit(NormalAnnotation node) {
 		coupleTo(node.resolveTypeBinding());
 		return super.visit(node);
 	}
 
+	@Override
 	public boolean visit(MarkerAnnotation node) {
 		coupleTo(node.resolveTypeBinding());
 		return super.visit(node);
 	}
 
+	@Override
 	public boolean visit(SingleMemberAnnotation node) {
 		coupleTo(node.resolveTypeBinding());
 		return super.visit(node);
 	}
 
+	@Override
 	public boolean visit(ParameterizedType node) {
 		ITypeBinding binding = node.resolveBinding();
 		if (binding == null)
@@ -150,6 +162,7 @@ public class CBO extends ASTVisitor implements Metric {
 	private void coupleTo(ITypeBinding binding) {
 		if (binding == null)
 			return;
+
 		if (binding.isWildcardType())
 			return;
 
@@ -159,6 +172,13 @@ public class CBO extends ASTVisitor implements Metric {
 
 		if (!isFromJava(type) && !binding.isPrimitive())
 			coupling.add(type.replace("[]", ""));
+
+		// Efferent: reference outside package
+		if (binding.getPackage() != null)
+			packageReferences.add(binding.getPackage().getName());
+		else
+			packageReferences.add("default");
+
 	}
 
 	private boolean isFromJava(String type) {
@@ -173,5 +193,11 @@ public class CBO extends ASTVisitor implements Metric {
 	@Override
 	public void setResult(CKNumber result) {
 		result.setCbo(coupling.size());
+		
+		result.setAfferentCoupling(this.packageReferences.size());
+		
+		int efferent = this.packageReferences.stream().filter(pack -> !result.getPackageName().equals(pack))
+				.collect(Collectors.toList()).size();
+		result.setEfferentCoupling(efferent);
 	}
 }

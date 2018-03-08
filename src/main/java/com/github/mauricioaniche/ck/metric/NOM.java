@@ -11,6 +11,7 @@ public class NOM extends ASTVisitor implements Metric {
 
 	private int methods;
 	private int constructors;
+	private int parameters;
 	
 	@Override
 	public boolean visit(MethodDeclaration node) {
@@ -18,6 +19,8 @@ public class NOM extends ASTVisitor implements Metric {
 		if(node.isConstructor())
 			constructors++;
 
+		parameters += node.parameters().size();
+		
 		return false;
 	}
 
@@ -30,5 +33,6 @@ public class NOM extends ASTVisitor implements Metric {
 	public void setResult(CKNumber result) {
 		result.setNom(methods);
 		result.setNoConstructors(constructors);
+		result.setNParameter(parameters);
 	}
 }

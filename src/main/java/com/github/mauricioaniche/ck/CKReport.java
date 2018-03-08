@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CKReport {
-
+	
 	private Map<String, CKNumber> results;
 
 	public CKReport() {
-		this.results = new HashMap<String, CKNumber>();
+		this.results = new HashMap<>();
 	}
 
 	public void add(CKNumber ck) {
@@ -23,7 +23,7 @@ public class CKReport {
 	public Collection<CKNumber> all() {
 		return results.values();
 	}
-
+	
 	public CKNumber getByClassName(String name) {
 		for (CKNumber ck : all()) {
 			if (ck.getClassName().equals(name))
