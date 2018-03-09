@@ -4,7 +4,7 @@
 # How to Contribute
 
 ```
-git clone https://github.com/mauricioaniche/ck.git
+git clone 
 ```
 
 Then, you can:
