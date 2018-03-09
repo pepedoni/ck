@@ -43,6 +43,7 @@ public class CKNumber {
 	private int programVocabulary;
 	private int programVolume;
 	private int noTypesPackage;
+	private int nImport;
 	
 	private double averageBlockDepth;
 	private double averageAttributesClass;
@@ -58,6 +59,9 @@ public class CKNumber {
 	private double effort;
 	private double timeToImplement;
 	private double programLevel;
+	private double commentsRatio;
+	private double nDeliveredBugs;
+	private double averageComments;
 	
 	private Map<String, Integer> specific;
 	private boolean error;
@@ -607,6 +611,62 @@ public class CKNumber {
 		this.nComments = nComments;
 	}
 
+	/**
+	 * @return the commentsRatio
+	 */
+	public double getCommentsRatio() {
+		return commentsRatio;
+	}
+
+	/**
+	 * @param commentsRatio the commentsRatio to set
+	 */
+	public void setCommentsRatio(double commentsRatio) {
+		this.commentsRatio = commentsRatio;
+	}
+
+	/**
+	 * @return the nDeliveredBugs
+	 */
+	public double getNDeliveredBugs() {
+		return nDeliveredBugs;
+	}
+
+	/**
+	 * @param nDeliveredBugs the nDeliveredBugs to set
+	 */
+	public void setNDeliveredBugs(double nDeliveredBugs) {
+		this.nDeliveredBugs = nDeliveredBugs;
+	}
+
+	/**
+	 * @return the averageComments
+	 */
+	public double getAverageComments() {
+		return averageComments;
+	}
+
+	/**
+	 * @param averageComments the averageComments to set
+	 */
+	public void setAverageComments(double averageComments) {
+		this.averageComments = averageComments;
+	}
+
+	/**
+	 * @return the nImport
+	 */
+	public int getNImport() {
+		return nImport;
+	}
+
+	/**
+	 * @param nImport the nImport to set
+	 */
+	public void setNImport(int nImport) {
+		this.nImport = nImport;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -621,12 +681,13 @@ public class CKNumber {
 				+ ", nUniqueOperators=" + nUniqueOperators + ", noConstructors=" + noConstructors + ", nNestedBlocks="
 				+ nNestedBlocks + ", wmc=" + wmc + ", programLength=" + programLength + ", programVocabulary="
 				+ programVocabulary + ", programVolume=" + programVolume + ", noTypesPackage=" + noTypesPackage
-				+ ", averageBlockDepth=" + averageBlockDepth + ", averageAttributesClass=" + averageAttributesClass
-				+ ", averageConstructorsClass=" + averageConstructorsClass + ", averageLOCMethod=" + averageLOCMethod
-				+ ", averageNOM=" + averageNOM + ", averageNParameter=" + averageNParameter + ", abstractness="
-				+ abstractness + ", instability=" + instability + ", normalizedDistance=" + normalizedDistance
-				+ ", difficultLevel=" + difficultLevel + ", effort=" + effort + ", timeToImplement=" + timeToImplement
-				+ ", programLevel=" + programLevel + ", specific=" + specific + ", error=" + error + "]";
+				+ ", nImport=" + nImport + ", averageBlockDepth=" + averageBlockDepth + ", averageAttributesClass="
+				+ averageAttributesClass + ", averageConstructorsClass=" + averageConstructorsClass
+				+ ", averageLOCMethod=" + averageLOCMethod + ", averageNOM=" + averageNOM + ", averageNParameter="
+				+ averageNParameter + ", abstractness=" + abstractness + ", instability=" + instability
+				+ ", normalizedDistance=" + normalizedDistance + ", difficultLevel=" + difficultLevel + ", effort="
+				+ effort + ", timeToImplement=" + timeToImplement + ", programLevel=" + programLevel
+				+ ", commentsRatio=" + commentsRatio + ", nDeliveredBugs=" + nDeliveredBugs + ", averageComments="
+				+ averageComments + ", specific=" + specific + ", error=" + error + "]";
 	}
-
 }
