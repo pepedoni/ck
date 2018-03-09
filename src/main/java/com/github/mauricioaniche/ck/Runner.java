@@ -31,7 +31,7 @@ public class Runner {
 				result.getDit() + "," +
 				result.getNoc() + "," +
 				result.getRfc() + "," +
-				result.getLcom() + "," +
+				result.getLcom2() + "," +
 				result.getNom() + "," +
 				result.getNopm() + "," + 
 				result.getNosm() + "," +

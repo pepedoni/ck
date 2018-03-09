@@ -57,7 +57,9 @@ public class ClassInfo extends ASTVisitor {
 				this.packageName = pack.getName();
 			else
 				this.packageName = "default";
+			
+			
+			
 		}
 	}
-
 }

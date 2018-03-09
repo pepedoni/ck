@@ -13,7 +13,7 @@ import com.github.mauricioaniche.ck.CKReport;
  * @author klerisson
  *
  */
-public class NOTypesPackage implements ComposedMetric {
+public class NOTypesPerPackage implements ComposedMetric {
 
 	private Map<String, Integer> packageToClassNumber = new HashMap<>();
 

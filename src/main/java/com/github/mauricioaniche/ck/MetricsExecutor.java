@@ -35,10 +35,11 @@ public class MetricsExecutor extends FileASTRequestor {
 			cu.accept(info);
 			if(info.getClassName()==null) return;
 			
-			result = new CKNumber(sourceFilePath,info.getPackageName(), info.getClassName(), info.getType());
+			result = new CKNumber(sourceFilePath, info.getPackageName(), info.getClassName(), info.getType());
 			
-			int loc = new LOCCalculator().calculate(new FileInputStream(sourceFilePath));
-			result.setLoc(loc);
+			int[] loc = new LOCCalculator().calculate(new FileInputStream(sourceFilePath));
+			result.setNoLines(loc[0]);
+			result.setLoc(loc[1]);
 			
 			for(Metric visitor : metrics.call()) {
 				visitor.execute(cu, result, report);

@@ -13,22 +13,22 @@ public class CKNumber {
 	private int dit;
 	private int noc;
 	private int mcCabe;
-	
 	private int cbo;
 	private int efferentCoupling;
 	private int afferentCoupling;
-	
-	private int lcom;
+	private int lcom1;
+	private int lcom2;
+	private double lcom3;
 	private int rfc;
 	private int nom;
 	private int nopm;
 	private int nosm;
-
 	private int nof;
 	private int nopf;
 	private int nosf;
 	private int nosi;
 	private int loc;
+	private int noLines;
 	private int nParameter;
 	private int nComments;
 
@@ -44,6 +44,7 @@ public class CKNumber {
 	private int programVolume;
 	private int noTypesPackage;
 	private int nImport;
+	private int noInteface;
 	
 	private double averageBlockDepth;
 	private double averageAttributesClass;
@@ -62,6 +63,7 @@ public class CKNumber {
 	private double commentsRatio;
 	private double nDeliveredBugs;
 	private double averageComments;
+	private double maintainability;
 	
 	private Map<String, Integer> specific;
 	private boolean error;
@@ -148,12 +150,40 @@ public class CKNumber {
 		this.cbo = cbo;
 	}
 
-	public void setLcom(int lcom) {
-		this.lcom = lcom;
+	/**
+	 * @return the lcom1
+	 */
+	public int getLcom1() {
+		return lcom1;
 	}
 
-	public int getLcom() {
-		return lcom;
+	/**
+	 * @param lcom1 the lcom1 to set
+	 */
+	public void setLcom1(int lcom1) {
+		this.lcom1 = lcom1;
+	}
+
+	public void setLcom2(int lcom) {
+		this.lcom2 = lcom;
+	}
+
+	public int getLcom2() {
+		return lcom2;
+	}
+
+	/**
+	 * @return the lcom3
+	 */
+	public double getLcom3() {
+		return lcom3;
+	}
+
+	/**
+	 * @param lcom3 the lcom3 to set
+	 */
+	public void setLcom3(double lcom3) {
+		this.lcom3 = lcom3;
 	}
 
 	public void setRfc(int rfc) {
@@ -667,6 +697,48 @@ public class CKNumber {
 		this.nImport = nImport;
 	}
 
+	/**
+	 * @return the noInteface
+	 */
+	public int getNOInteface() {
+		return noInteface;
+	}
+
+	/**
+	 * @param noInteface the noInteface to set
+	 */
+	public void setNOInteface(int noInteface) {
+		this.noInteface = noInteface;
+	}
+
+	/**
+	 * @return the noLines
+	 */
+	public int getNoLines() {
+		return noLines;
+	}
+
+	/**
+	 * @param noLines the noLines to set
+	 */
+	public void setNoLines(int noLines) {
+		this.noLines = noLines;
+	}
+
+	/**
+	 * @return the maintainability
+	 */
+	public double getMaintainability() {
+		return maintainability;
+	}
+
+	/**
+	 * @param maintainability the maintainability to set
+	 */
+	public void setMaintainability(double maintainability) {
+		this.maintainability = maintainability;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -674,20 +746,24 @@ public class CKNumber {
 	public String toString() {
 		return "CKNumber [file=" + file + ", packageName=" + packageName + ", className=" + className + ", type=" + type
 				+ ", dit=" + dit + ", noc=" + noc + ", mcCabe=" + mcCabe + ", cbo=" + cbo + ", efferentCoupling="
-				+ efferentCoupling + ", afferentCoupling=" + afferentCoupling + ", lcom=" + lcom + ", rfc=" + rfc
-				+ ", nom=" + nom + ", nopm=" + nopm + ", nosm=" + nosm + ", nof=" + nof + ", nopf=" + nopf + ", nosf="
-				+ nosf + ", nosi=" + nosi + ", loc=" + loc + ", nParameter=" + nParameter + ", nComments=" + nComments
-				+ ", nOperands=" + nOperands + ", nUniqueOperands=" + nUniqueOperands + ", nOperators=" + nOperators
-				+ ", nUniqueOperators=" + nUniqueOperators + ", noConstructors=" + noConstructors + ", nNestedBlocks="
-				+ nNestedBlocks + ", wmc=" + wmc + ", programLength=" + programLength + ", programVocabulary="
-				+ programVocabulary + ", programVolume=" + programVolume + ", noTypesPackage=" + noTypesPackage
-				+ ", nImport=" + nImport + ", averageBlockDepth=" + averageBlockDepth + ", averageAttributesClass="
-				+ averageAttributesClass + ", averageConstructorsClass=" + averageConstructorsClass
-				+ ", averageLOCMethod=" + averageLOCMethod + ", averageNOM=" + averageNOM + ", averageNParameter="
-				+ averageNParameter + ", abstractness=" + abstractness + ", instability=" + instability
-				+ ", normalizedDistance=" + normalizedDistance + ", difficultLevel=" + difficultLevel + ", effort="
-				+ effort + ", timeToImplement=" + timeToImplement + ", programLevel=" + programLevel
+				+ efferentCoupling + ", afferentCoupling=" + afferentCoupling + ", lcom1=" + lcom1 + ", lcom2=" + lcom2
+				+ ", lcom3=" + lcom3 + ", rfc=" + rfc + ", nom=" + nom + ", nopm=" + nopm + ", nosm=" + nosm + ", nof="
+				+ nof + ", nopf=" + nopf + ", nosf=" + nosf + ", nosi=" + nosi + ", loc=" + loc + ", noLines=" + noLines
+				+ ", nParameter=" + nParameter + ", nComments=" + nComments + ", nOperands=" + nOperands
+				+ ", nUniqueOperands=" + nUniqueOperands + ", nOperators=" + nOperators + ", nUniqueOperators="
+				+ nUniqueOperators + ", noConstructors=" + noConstructors + ", nNestedBlocks=" + nNestedBlocks
+				+ ", wmc=" + wmc + ", programLength=" + programLength + ", programVocabulary=" + programVocabulary
+				+ ", programVolume=" + programVolume + ", noTypesPackage=" + noTypesPackage + ", nImport=" + nImport
+				+ ", noInteface=" + noInteface + ", averageBlockDepth=" + averageBlockDepth
+				+ ", averageAttributesClass=" + averageAttributesClass + ", averageConstructorsClass="
+				+ averageConstructorsClass + ", averageLOCMethod=" + averageLOCMethod + ", averageNOM=" + averageNOM
+				+ ", averageNParameter=" + averageNParameter + ", abstractness=" + abstractness + ", instability="
+				+ instability + ", normalizedDistance=" + normalizedDistance + ", difficultLevel=" + difficultLevel
+				+ ", effort=" + effort + ", timeToImplement=" + timeToImplement + ", programLevel=" + programLevel
 				+ ", commentsRatio=" + commentsRatio + ", nDeliveredBugs=" + nDeliveredBugs + ", averageComments="
-				+ averageComments + ", specific=" + specific + ", error=" + error + "]";
+				+ averageComments + ", maintainability=" + maintainability + ", specific=" + specific + ", error="
+				+ error + "]";
 	}
+
+	
 }
