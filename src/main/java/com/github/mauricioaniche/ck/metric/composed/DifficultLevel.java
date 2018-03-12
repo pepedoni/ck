@@ -19,7 +19,11 @@ public class DifficultLevel implements ComposedMetric {
 	@Override
 	public void update(CKReport report) {
 		for (CKNumber ck : report.all()) {
-			double dl = (ck.getNUniqueOperators() / 2) * (ck.getNOperands() / ck.getNUniqueOperands()); 
+			double dl = 0.0; 
+			try {
+				dl = (double) (ck.getNUniqueOperators() / 2) * (ck.getNOperands() / ck.getNUniqueOperands());
+			} catch (Exception e) {
+			}
 			ck.setDifficultLevel(dl);
 		}
 	}

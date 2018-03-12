@@ -5,6 +5,7 @@ package com.github.mauricioaniche.ck.metric.composed;
 
 import java.util.HashSet;
 
+import com.github.mauricioaniche.ck.CKNumber;
 import com.github.mauricioaniche.ck.CKReport;
 
 /**
@@ -18,6 +19,14 @@ public class AverageComments implements ComposedMetric {
 	@Override
 	public void update(CKReport report) {
 		report.all().forEach(ck -> packages.add(ck.getPackageName()));
-		report.all().forEach(ck -> ck.setAverageComments(ck.getNComments() / packages.size()));
+
+		for (CKNumber ck : report.all()) {
+			double average = 0.0;
+			try {
+				average = (double) ck.getNComments() / packages.size();
+			} catch (Exception e) {
+			}
+			ck.setAverageComments(average);
+		}
 	}
 }

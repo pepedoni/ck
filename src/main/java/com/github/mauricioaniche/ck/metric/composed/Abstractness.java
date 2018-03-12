@@ -22,8 +22,13 @@ public class Abstractness implements ComposedMetric {
 		}
 
 		for (CKNumber ck : report.all()) {
-			double abstractness = (double) packageToAbstractClassNumber.getOrDefault(ck.getPackageName(), 0)
-					/ packageToClassNumber.getOrDefault(ck.getPackageName(), 1);
+			double abstractness = 0.0;
+			try {
+				abstractness = (double) packageToAbstractClassNumber.get(ck.getPackageName())
+						/ packageToClassNumber.get(ck.getPackageName());
+			} catch (Exception e) {
+
+			}
 			ck.setAbstractness(abstractness);
 		}
 

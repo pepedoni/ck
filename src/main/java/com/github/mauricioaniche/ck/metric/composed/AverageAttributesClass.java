@@ -24,7 +24,12 @@ public class AverageAttributesClass implements ComposedMetric {
 		}
 
 		for (CKNumber ck : report.all()) {
-			double aac = ck.getNof() / packageToClassNumber.get(ck.getPackageName());
+			double aac = 0.0;
+			try {
+				aac = (double) ck.getNof() / packageToClassNumber.get(ck.getPackageName());
+			} catch (Exception e) {
+				
+			}
 			ck.setAverageAttributesClass(aac);
 		}
 	}

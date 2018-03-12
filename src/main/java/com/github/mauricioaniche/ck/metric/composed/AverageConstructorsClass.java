@@ -24,7 +24,11 @@ public class AverageConstructorsClass implements ComposedMetric {
 		}
 
 		for (CKNumber ck : report.all()) {
-			double acc = ck.getNoConstructors() / packageToClassNumber.get(ck.getPackageName());
+			double acc = 0.0;
+			try {
+				acc = (double) ck.getNoConstructors() / packageToClassNumber.get(ck.getPackageName());
+			} catch (Exception e) {
+			}
 			ck.setAverageConstructorsClass(acc);
 		}
 	}

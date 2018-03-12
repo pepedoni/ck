@@ -20,7 +20,11 @@ public class Effort implements ComposedMetric {
 		
 		//make sure dl and V were previously computed
 		for (CKNumber ck : report.all()) {
-			double e = ck.getDifficultLevel() * ck.getProgramVolume();
+			double e = 0.0;
+			try {
+				e = ck.getDifficultLevel() * ck.getProgramVolume();
+			} catch (Exception e2) {
+			}
 			ck.setEffort(e);
 		}
 	}

@@ -24,7 +24,11 @@ public class AverageNOM implements ComposedMetric {
 		}
 
 		for (CKNumber ck : report.all()) {
-			double aNOM = ck.getNom() / pack.size();
+			double aNOM = 0.0;
+			try {
+				aNOM = (double) ck.getNom() / pack.size();
+			} catch (Exception e) {
+			}
 			ck.setAverageNOM(aNOM);
 		}
 	}

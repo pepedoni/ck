@@ -15,7 +15,11 @@ public class Instability implements ComposedMetric {
 	@Override
 	public void update(CKReport report) {
 		for(CKNumber ck : report.all()) {
-			double i = ck.getEfferentCoupling() / (ck.getAfferentCoupling() + ck.getEfferentCoupling());
+			double i = 0.0;
+			try {
+				i = (double) ck.getEfferentCoupling() / (ck.getAfferentCoupling() + ck.getEfferentCoupling());
+			} catch (Exception e) {
+			}
 			ck.setInstability(i);
 		}
 	}

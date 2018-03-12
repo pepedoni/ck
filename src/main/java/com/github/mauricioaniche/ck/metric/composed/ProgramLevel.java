@@ -15,11 +15,14 @@ import com.github.mauricioaniche.ck.CKReport;
 public class ProgramLevel implements ComposedMetric {
 
 	@Override
-	public void update(CKReport report) {
-		
+	public void update(CKReport report) {		
 		//make sure difficult level was previously computed
 		for (CKNumber ck : report.all()) {
-			double pLevel = 1 / ck.getDifficultLevel();
+			double pLevel = 0.0;
+			try {
+				pLevel = (double) 1 / ck.getDifficultLevel();
+			} catch (Exception e) {
+			}
 			ck.setProgramLevel(pLevel);
 		}
 	}

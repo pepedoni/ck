@@ -24,7 +24,7 @@ public class NOTypesPerPackage implements ComposedMetric {
 		}
 
 		for (CKNumber ck : report.all()) {
-			int types = packageToClassNumber.get(ck.getPackageName());
+			int types = packageToClassNumber.getOrDefault(ck.getPackageName(), 0);
 			ck.setNOTypesPackage(types);
 		}
 	}

@@ -15,7 +15,12 @@ public class AverageBlockDepth implements ComposedMetric {
 	@Override
 	public void update(CKReport report) {
 		for(CKNumber ck : report.all()) {
-			double abd = (ck.getNom() + ck.getNoConstructors()) / ck.getNNestedBlocks();
+			double abd = 0.0; 
+			try {
+				abd = (double) (ck.getNom() + ck.getNoConstructors()) / ck.getNNestedBlocks();
+			} catch (Exception e) {
+			
+			}
 			ck.setAverageBlockDepth(abd);
 		}
 	}
