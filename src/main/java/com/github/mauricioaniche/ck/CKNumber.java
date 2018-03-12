@@ -765,5 +765,4 @@ public class CKNumber {
 				+ error + "]";
 	}
 
-	
 }

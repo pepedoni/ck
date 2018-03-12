@@ -9,10 +9,11 @@ import com.github.mauricioaniche.ck.CKReport;
 /**
  * @author klerisson
  *
- *         V = Halstead Volume G = Cyclomatic Complexity LOC = count of source
- *         Lines Of Code (SLOC)
+ * V = Halstead Volume 
+ * G = Cyclomatic Complexity 
+ * LOC = count of source
  * 
- *         MI = 171 - 5.2 * ln(V) - 0.23 * (G) - 16.2 * ln(LOC)
+ * MI = 171 - 5.2 * ln(V) - 0.23 * (G) - 16.2 * ln(LOC)
  *
  */
 public class Maintainability implements ComposedMetric {

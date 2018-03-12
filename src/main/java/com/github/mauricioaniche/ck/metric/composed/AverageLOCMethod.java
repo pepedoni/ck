@@ -14,7 +14,12 @@ public class AverageLOCMethod implements ComposedMetric {
 	@Override
 	public void update(CKReport report) {
 		for (CKNumber ck : report.all()) {
-			double aLocMethod = (ck.getLoc() / ck.getNom())/10;
+			double aLocMethod = 0.0;
+			try {
+				aLocMethod = ((double) ck.getLoc() / ck.getNom())/10;
+			} catch(ArithmeticException ae) {
+				
+			}
 			ck.setAverageLOCMethod(aLocMethod);
 		}
 	}
