@@ -24,6 +24,7 @@ public class Effort implements ComposedMetric {
 			try {
 				e = ck.getDifficultLevel() * ck.getProgramVolume();
 			} catch (Exception e2) {
+				e = 0.0;
 			}
 			ck.setEffort(e);
 		}

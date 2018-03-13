@@ -106,6 +106,13 @@ public class CKNumber {
 		return true;
 	}
 
+	private double sanityzer(double value) {
+		if(Double.isNaN(value) || Double.isInfinite(value))
+			value = 0.0;
+	
+		return value;
+	}
+	
 	public int getDit() {
 		return dit;
 	}
@@ -183,7 +190,7 @@ public class CKNumber {
 	 * @param lcom3 the lcom3 to set
 	 */
 	public void setLcom3(double lcom3) {
-		this.lcom3 = lcom3;
+		this.lcom3 = sanityzer(lcom3);
 	}
 
 	public void setRfc(int rfc) {
@@ -344,7 +351,7 @@ public class CKNumber {
 	}
 	
 	public void setAverageBlockDepth(double abd) {
-		averageBlockDepth = abd;		
+		averageBlockDepth = sanityzer(abd);		
 	}
 
 	/**
@@ -372,7 +379,7 @@ public class CKNumber {
 	 * @param averageAttributesClass the averageAttributesClass to set
 	 */
 	public void setAverageAttributesClass(double averageAttributesClass) {
-		this.averageAttributesClass = averageAttributesClass;
+		this.averageAttributesClass = sanityzer(averageAttributesClass);
 	}
 	
 	/**
@@ -386,7 +393,7 @@ public class CKNumber {
 	 * @param averageConstructorsClass the averageConstructorsClass to set
 	 */
 	public void setAverageConstructorsClass(double averageConstructorsClass) {
-		this.averageConstructorsClass = averageConstructorsClass;
+		this.averageConstructorsClass = sanityzer(averageConstructorsClass);
 	}
 
 	/**
@@ -400,7 +407,7 @@ public class CKNumber {
 	 * @param abstractness the abstractness to set
 	 */
 	public void setAbstractness(double abstractness) {
-		this.abstractness = abstractness;
+		this.abstractness = sanityzer(abstractness);
 	}
 
 	/**
@@ -442,7 +449,7 @@ public class CKNumber {
 	 * @param instability the instability to set
 	 */
 	public void setInstability(double instability) {
-		this.instability = instability;
+		this.instability = sanityzer(instability);
 	}
 
 	/**
@@ -456,7 +463,7 @@ public class CKNumber {
 	 * @param normalizedDistance the normalizedDistance to set
 	 */
 	public void setNormalizedDistance(double normalizedDistance) {
-		this.normalizedDistance = normalizedDistance;
+		this.normalizedDistance = sanityzer(normalizedDistance);
 	}
 
 	/**
@@ -470,7 +477,7 @@ public class CKNumber {
 	 * @param difficultLevel the difficultLevel to set
 	 */
 	public void setDifficultLevel(double difficultLevel) {
-		this.difficultLevel = difficultLevel;
+		this.difficultLevel = sanityzer(difficultLevel);
 	}
 
 	/**
@@ -526,7 +533,7 @@ public class CKNumber {
 	 * @param effort the effort to set
 	 */
 	public void setEffort(double effort) {
-		this.effort = effort;
+		this.effort = sanityzer(effort);
 	}
 
 	/**
@@ -540,7 +547,7 @@ public class CKNumber {
 	 * @param timeToImplement the timeToImplement to set
 	 */
 	public void setTimeToImplement(double timeToImplement) {
-		this.timeToImplement = timeToImplement;
+		this.timeToImplement = sanityzer(timeToImplement);
 	}
 
 	/**
@@ -554,7 +561,7 @@ public class CKNumber {
 	 * @param programLevel the programLevel to set
 	 */
 	public void setProgramLevel(double programLevel) {
-		this.programLevel = programLevel;
+		this.programLevel = sanityzer(programLevel);
 	}
 
 	/**
@@ -568,7 +575,7 @@ public class CKNumber {
 	 * @param averageLOCMethod the averageLOCMethod to set
 	 */
 	public void setAverageLOCMethod(double averageLOCMethod) {
-		this.averageLOCMethod = averageLOCMethod;
+		this.averageLOCMethod = sanityzer(averageLOCMethod);
 	}
 
 	/**
@@ -582,7 +589,7 @@ public class CKNumber {
 	 * @param averageNOM the averageNOM to set
 	 */
 	public void setAverageNOM(double averageNOM) {
-		this.averageNOM = averageNOM;
+		this.averageNOM = sanityzer(averageNOM);
 	}
 
 	/**
@@ -610,7 +617,7 @@ public class CKNumber {
 	 * @param averageNParameter the averageNParameter to set
 	 */
 	public void setAverageNParameter(double averageNParameter) {
-		this.averageNParameter = averageNParameter;
+		this.averageNParameter = sanityzer(averageNParameter);
 	}
 
 	/**
@@ -652,7 +659,7 @@ public class CKNumber {
 	 * @param commentsRatio the commentsRatio to set
 	 */
 	public void setCommentsRatio(double commentsRatio) {
-		this.commentsRatio = commentsRatio;
+		this.commentsRatio = sanityzer(commentsRatio);
 	}
 
 	/**
@@ -666,7 +673,7 @@ public class CKNumber {
 	 * @param nDeliveredBugs the nDeliveredBugs to set
 	 */
 	public void setNDeliveredBugs(double nDeliveredBugs) {
-		this.nDeliveredBugs = nDeliveredBugs;
+		this.nDeliveredBugs = sanityzer(nDeliveredBugs);
 	}
 
 	/**
@@ -680,7 +687,7 @@ public class CKNumber {
 	 * @param averageComments the averageComments to set
 	 */
 	public void setAverageComments(double averageComments) {
-		this.averageComments = averageComments;
+		this.averageComments = sanityzer(averageComments);
 	}
 
 	/**
@@ -736,7 +743,7 @@ public class CKNumber {
 	 * @param maintainability the maintainability to set
 	 */
 	public void setMaintainability(double maintainability) {
-		this.maintainability = maintainability;
+		this.maintainability = sanityzer(maintainability);
 	}
 
 	/* (non-Javadoc)

@@ -23,6 +23,7 @@ public class DifficultLevel implements ComposedMetric {
 			try {
 				dl = (double) (ck.getNUniqueOperators() / 2) * (ck.getNOperands() / ck.getNUniqueOperands());
 			} catch (Exception e) {
+				dl = 0.0;
 			}
 			ck.setDifficultLevel(dl);
 		}

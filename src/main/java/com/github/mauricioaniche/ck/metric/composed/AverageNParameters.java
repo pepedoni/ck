@@ -15,11 +15,11 @@ public class AverageNParameters implements ComposedMetric {
 	@Override
 	public void update(CKReport report) {
 		for (CKNumber ck : report.all()) {
-			
 			double a = 0.0;
 			try {
 				a = (double)ck.getNParameter() / ck.getNom();
 			} catch (Exception e) {
+				a = 0.0;
 			}
 			ck.setAverageNParameter(a);
 		}

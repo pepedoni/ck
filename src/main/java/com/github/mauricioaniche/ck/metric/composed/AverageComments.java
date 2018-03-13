@@ -25,6 +25,7 @@ public class AverageComments implements ComposedMetric {
 			try {
 				average = (double) ck.getNComments() / packages.size();
 			} catch (Exception e) {
+				average = 0.0;
 			}
 			ck.setAverageComments(average);
 		}

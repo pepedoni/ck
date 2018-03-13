@@ -19,7 +19,7 @@ public class AverageBlockDepth implements ComposedMetric {
 			try {
 				abd = (double) (ck.getNom() + ck.getNoConstructors()) / ck.getNNestedBlocks();
 			} catch (Exception e) {
-			
+				abd = 0.0; 
 			}
 			ck.setAverageBlockDepth(abd);
 		}

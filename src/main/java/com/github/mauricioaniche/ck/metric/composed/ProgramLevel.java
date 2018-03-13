@@ -22,6 +22,7 @@ public class ProgramLevel implements ComposedMetric {
 			try {
 				pLevel = (double) 1 / ck.getDifficultLevel();
 			} catch (Exception e) {
+				pLevel = 0.0;
 			}
 			ck.setProgramLevel(pLevel);
 		}

@@ -21,6 +21,7 @@ public class NDeliveredBugs implements ComposedMetric {
 			try {
 				ndb = (double) (Math.pow(ck.getEffort(),(2/3))) / 3000;
 			} catch (Exception e) {
+				ndb = 0.0;
 			}
 			ck.setNDeliveredBugs(ndb);
 		}

@@ -24,6 +24,7 @@ public class Maintainability implements ComposedMetric {
 				mi = (double) 171 - 5.2 * Math.log(ck.getProgramVolume()) - 0.23 * ck.getMcCabe()
 						- 16.2 * Math.log(ck.getLoc());
 			} catch (Exception e) {
+				mi = 0.0;
 			}
 			ck.setMaintainability(mi);
 		}

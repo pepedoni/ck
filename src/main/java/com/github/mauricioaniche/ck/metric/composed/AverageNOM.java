@@ -28,6 +28,7 @@ public class AverageNOM implements ComposedMetric {
 			try {
 				aNOM = (double) ck.getNom() / pack.size();
 			} catch (Exception e) {
+				aNOM = 0.0;
 			}
 			ck.setAverageNOM(aNOM);
 		}

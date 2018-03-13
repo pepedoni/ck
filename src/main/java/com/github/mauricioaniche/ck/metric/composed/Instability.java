@@ -19,6 +19,7 @@ public class Instability implements ComposedMetric {
 			try {
 				i = (double) ck.getEfferentCoupling() / (ck.getAfferentCoupling() + ck.getEfferentCoupling());
 			} catch (Exception e) {
+				i = 0.0;
 			}
 			ck.setInstability(i);
 		}

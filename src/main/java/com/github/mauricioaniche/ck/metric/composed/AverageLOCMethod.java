@@ -18,7 +18,7 @@ public class AverageLOCMethod implements ComposedMetric {
 			try {
 				aLocMethod = ((double) ck.getLoc() / ck.getNom())/10;
 			} catch(ArithmeticException ae) {
-				
+				aLocMethod = 0.0;
 			}
 			ck.setAverageLOCMethod(aLocMethod);
 		}
