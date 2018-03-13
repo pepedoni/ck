@@ -110,6 +110,8 @@ public class CKNumber {
 		if(Double.isNaN(value) || Double.isInfinite(value))
 			value = 0.0;
 	
+		value = (double)Math.round(value * 1000d) / 1000d;
+		
 		return value;
 	}
 	
