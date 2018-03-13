@@ -1,5 +1,7 @@
 package com.github.mauricioaniche.ck;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -67,6 +69,7 @@ public class CKNumber {
 	
 	private Map<String, Integer> specific;
 	private boolean error;
+	private DecimalFormat df;
 	
 	public CKNumber(String file, String packageName, String className, String type) {
 		this.file = file;
@@ -75,6 +78,9 @@ public class CKNumber {
 		this.type = type;
 
 		this.specific = new HashMap<String, Integer>();
+		
+		DecimalFormat df = new DecimalFormat("#.####");
+		df.setRoundingMode(RoundingMode.CEILING);
 	}
 
 	public String getFile() {
@@ -109,10 +115,8 @@ public class CKNumber {
 	private double sanityzer(double value) {
 		if(Double.isNaN(value) || Double.isInfinite(value))
 			value = 0.0;
-	
-		value = (double)Math.round(value * 1000d) / 1000d;
-		
-		return value;
+			
+		return Double.valueOf(df.format(value));
 	}
 	
 	public int getDit() {
