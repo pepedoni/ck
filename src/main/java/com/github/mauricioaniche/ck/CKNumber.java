@@ -79,7 +79,7 @@ public class CKNumber {
 
 		this.specific = new HashMap<String, Integer>();
 		
-		DecimalFormat df = new DecimalFormat("#.####");
+		df = new DecimalFormat("#.####");
 		df.setRoundingMode(RoundingMode.CEILING);
 	}
 
