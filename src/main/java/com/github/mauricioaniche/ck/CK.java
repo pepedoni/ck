@@ -126,6 +126,7 @@ public class CK {
 		CKReport report = storage.getReport();
 		extras.update(report);
 
+		log.info("Composed metrics computing...");
 		// Composed metrics
 		for (ComposedMetric cm : this.composedMetrics) {
 			cm.update(report);
