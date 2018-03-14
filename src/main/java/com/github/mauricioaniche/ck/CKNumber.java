@@ -116,7 +116,8 @@ public class CKNumber {
 		if(Double.isNaN(value) || Double.isInfinite(value))
 			value = 0.0;
 			
-		return Double.valueOf(df.format(value));
+		//return Double.valueOf(df.format(value));
+		return value;
 	}
 	
 	public int getDit() {
