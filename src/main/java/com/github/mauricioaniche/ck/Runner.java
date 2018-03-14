@@ -27,7 +27,7 @@ public class Runner {
 				result.getClassName() + "," +
 				result.getType() + "," +
 				result.getCbo() + "," +
-				result.getMcCabe() + "," +
+				result.getWMC() + "," +
 				result.getDit() + "," +
 				result.getNoc() + "," +
 				result.getRfc() + "," +

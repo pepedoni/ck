@@ -18,15 +18,11 @@ public class WMCTest extends BaseTest {
 	}
 
 	@Test
-	public void countMethodInvocations() {
-		CKNumber a = report.getByClassName("wmc.GO");
-		Assert.assertEquals(3, a.getRfc());
+	public void countAllBranchInstructions() {
+		
+		CKNumber a = report.getByClassName("wmc.CC1");
+		Assert.assertEquals(5, a.getWMC());
+		CKNumber b = report.getByClassName("wmc.CC2");
+		Assert.assertEquals(5, b.getWMC());
 	}
-
-	@Test
-	public void countSuperInvocations() {
-		CKNumber a = report.getByClassName("wmc.GO3");
-		Assert.assertEquals(2, a.getRfc());
-	}
-
 }

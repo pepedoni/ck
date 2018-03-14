@@ -14,7 +14,6 @@ import org.eclipse.jdt.core.dom.ASTParser;
 import com.github.mauricioaniche.ck.metric.CBO;
 import com.github.mauricioaniche.ck.metric.DIT;
 import com.github.mauricioaniche.ck.metric.LCOM;
-import com.github.mauricioaniche.ck.metric.McCabe;
 import com.github.mauricioaniche.ck.metric.Metric;
 import com.github.mauricioaniche.ck.metric.NComments;
 import com.github.mauricioaniche.ck.metric.NImports;
@@ -40,6 +39,7 @@ import com.github.mauricioaniche.ck.metric.composed.AverageConstructorsClass;
 import com.github.mauricioaniche.ck.metric.composed.AverageLOCMethod;
 import com.github.mauricioaniche.ck.metric.composed.AverageNOM;
 import com.github.mauricioaniche.ck.metric.composed.AverageNParameters;
+import com.github.mauricioaniche.ck.metric.composed.AverageWMC;
 import com.github.mauricioaniche.ck.metric.composed.CommentsRatio;
 import com.github.mauricioaniche.ck.metric.composed.ComposedMetric;
 import com.github.mauricioaniche.ck.metric.composed.DifficultLevel;
@@ -143,7 +143,7 @@ public class CK {
 	}
 
 	private List<Metric> defaultMetrics() {
-		return new ArrayList<>(Arrays.asList(new DIT(), new NOC(extras), new McCabe(), new CBO(), new LCOM(), new RFC(),
+		return new ArrayList<>(Arrays.asList(new DIT(), new NOC(extras), new WMC(), new CBO(), new LCOM(), new RFC(),
 				new NOM(), new NOF(), new NOPF(), new NOSF(), new WMC(), new NOPM(), new NOSM(), new NOSI(),
 				new NOperands(), new NOperators(), new NNestedBlock(), new NImports(), new NComments()));
 	}
@@ -153,7 +153,7 @@ public class CK {
 				new AverageConstructorsClass(), new AverageComments(), new AverageLOCMethod(), new AverageNOM(),
 				new ProgramLength(), new AverageNParameters(), new CommentsRatio(), new DifficultLevel(), new ProgramLevel(),
 				new ProgramVolume(), new Effort(), new NDeliveredBugs(), new NOInterfaces(), new NormalizedDistance(),
-				new NOTypesPerPackage(), new ProgramVocabulary(), new TimeToImplement(), new Instability(), new Maintainability()));
+				new NOTypesPerPackage(), new ProgramVocabulary(), new TimeToImplement(), new Instability(), new Maintainability(), new AverageWMC()));
 	}
 
 	private List<Metric> userMetrics() {

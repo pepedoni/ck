@@ -14,7 +14,6 @@ public class CKNumber {
 
 	private int dit;
 	private int noc;
-	private int mcCabe;
 	private int cbo;
 	private int efferentCoupling;
 	private int afferentCoupling;
@@ -54,6 +53,7 @@ public class CKNumber {
 	private double averageLOCMethod;
 	private double averageNOM;
 	private double averageNParameter;
+	private double averageWMC;
 	
 	private double abstractness;
 	private double instability;
@@ -146,14 +146,6 @@ public class CKNumber {
 
 	public int getNoc() {
 		return noc;
-	}
-
-	public void setMcCabe(int cc) {
-		this.mcCabe = cc;
-	}
-
-	public int getMcCabe() {
-		return mcCabe;
 	}
 
 	public int getCbo() {
@@ -628,6 +620,20 @@ public class CKNumber {
 	}
 
 	/**
+	 * @return the averageWMC
+	 */
+	public double getAverageWMC() {
+		return averageWMC;
+	}
+
+	/**
+	 * @param averageWMC the averageWMC to set
+	 */
+	public void setAverageWMC(double averageWMC) {
+		this.averageWMC = sanityzer(averageWMC);
+	}
+
+	/**
 	 * @return the noTypesPackage
 	 */
 	public int getNOTypesPackage() {
@@ -759,10 +765,10 @@ public class CKNumber {
 	@Override
 	public String toString() {
 		return "CKNumber [file=" + file + ", packageName=" + packageName + ", className=" + className + ", type=" + type
-				+ ", dit=" + dit + ", noc=" + noc + ", mcCabe=" + mcCabe + ", cbo=" + cbo + ", efferentCoupling="
-				+ efferentCoupling + ", afferentCoupling=" + afferentCoupling + ", lcom1=" + lcom1 + ", lcom2=" + lcom2
-				+ ", lcom3=" + lcom3 + ", rfc=" + rfc + ", nom=" + nom + ", nopm=" + nopm + ", nosm=" + nosm + ", nof="
-				+ nof + ", nopf=" + nopf + ", nosf=" + nosf + ", nosi=" + nosi + ", loc=" + loc + ", noLines=" + noLines
+				+ ", dit=" + dit + ", noc=" + noc + ", cbo=" + cbo + ", efferentCoupling=" + efferentCoupling
+				+ ", afferentCoupling=" + afferentCoupling + ", lcom1=" + lcom1 + ", lcom2=" + lcom2 + ", lcom3="
+				+ lcom3 + ", rfc=" + rfc + ", nom=" + nom + ", nopm=" + nopm + ", nosm=" + nosm + ", nof=" + nof
+				+ ", nopf=" + nopf + ", nosf=" + nosf + ", nosi=" + nosi + ", loc=" + loc + ", noLines=" + noLines
 				+ ", nParameter=" + nParameter + ", nComments=" + nComments + ", nOperands=" + nOperands
 				+ ", nUniqueOperands=" + nUniqueOperands + ", nOperators=" + nOperators + ", nUniqueOperators="
 				+ nUniqueOperators + ", noConstructors=" + noConstructors + ", nNestedBlocks=" + nNestedBlocks
@@ -771,12 +777,11 @@ public class CKNumber {
 				+ ", noInteface=" + noInteface + ", averageBlockDepth=" + averageBlockDepth
 				+ ", averageAttributesClass=" + averageAttributesClass + ", averageConstructorsClass="
 				+ averageConstructorsClass + ", averageLOCMethod=" + averageLOCMethod + ", averageNOM=" + averageNOM
-				+ ", averageNParameter=" + averageNParameter + ", abstractness=" + abstractness + ", instability="
-				+ instability + ", normalizedDistance=" + normalizedDistance + ", difficultLevel=" + difficultLevel
-				+ ", effort=" + effort + ", timeToImplement=" + timeToImplement + ", programLevel=" + programLevel
-				+ ", commentsRatio=" + commentsRatio + ", nDeliveredBugs=" + nDeliveredBugs + ", averageComments="
-				+ averageComments + ", maintainability=" + maintainability + ", specific=" + specific + ", error="
-				+ error + "]";
+				+ ", averageNParameter=" + averageNParameter + ", averageWMC=" + averageWMC + ", abstractness="
+				+ abstractness + ", instability=" + instability + ", normalizedDistance=" + normalizedDistance
+				+ ", difficultLevel=" + difficultLevel + ", effort=" + effort + ", timeToImplement=" + timeToImplement
+				+ ", programLevel=" + programLevel + ", commentsRatio=" + commentsRatio + ", nDeliveredBugs="
+				+ nDeliveredBugs + ", averageComments=" + averageComments + ", maintainability=" + maintainability
+				+ ", specific=" + specific + ", error=" + error + ", df=" + df + "]";
 	}
-
 }
