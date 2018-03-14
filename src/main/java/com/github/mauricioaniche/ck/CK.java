@@ -44,6 +44,8 @@ import com.github.mauricioaniche.ck.metric.composed.CommentsRatio;
 import com.github.mauricioaniche.ck.metric.composed.ComposedMetric;
 import com.github.mauricioaniche.ck.metric.composed.DifficultLevel;
 import com.github.mauricioaniche.ck.metric.composed.Effort;
+import com.github.mauricioaniche.ck.metric.composed.Instability;
+import com.github.mauricioaniche.ck.metric.composed.Maintainability;
 import com.github.mauricioaniche.ck.metric.composed.NDeliveredBugs;
 import com.github.mauricioaniche.ck.metric.composed.NOInterfaces;
 import com.github.mauricioaniche.ck.metric.composed.NOTypesPerPackage;
@@ -150,7 +152,7 @@ public class CK {
 				new AverageConstructorsClass(), new AverageComments(), new AverageLOCMethod(), new AverageNOM(),
 				new ProgramLength(), new AverageNParameters(), new CommentsRatio(), new DifficultLevel(), new ProgramLevel(),
 				new ProgramVolume(), new Effort(), new NDeliveredBugs(), new NOInterfaces(), new NormalizedDistance(),
-				new NOTypesPerPackage(), new ProgramVocabulary(), new TimeToImplement()));
+				new NOTypesPerPackage(), new ProgramVocabulary(), new TimeToImplement(), new Instability(), new Maintainability()));
 	}
 
 	private List<Metric> userMetrics() {
