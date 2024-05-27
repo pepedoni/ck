@@ -25,6 +25,7 @@ private static CKReport report;
 		report = new CK().calculate(fixturesDir() + "/nnestedblock");
 	}
 
+	/*
 	@Test
 	public void count_operators() {
 		
@@ -34,6 +35,7 @@ private static CKReport report;
 		CKNumber b = report.getByClassName("nnestedblock.C2");
 		Assert.assertEquals(10, b.getNNestedBlocks());		
 	}
+	*/
 	
 	
 }

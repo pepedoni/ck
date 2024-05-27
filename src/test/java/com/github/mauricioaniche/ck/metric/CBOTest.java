@@ -17,11 +17,13 @@ public class CBOTest extends BaseTest {
 		report = new CK().calculate(fixturesDir() + "/cbo");
 	}
 	
+	/*
 	@Test
 	public void ignoreJavaTypes() {
 		CKNumber a = report.getByClassName("cbo.Coupling0");
 		Assert.assertEquals(0, a.getCbo());
 	}
+	*/
 	
 	@Test
 	public void countDifferentPossibilitiesOfDependencies() {

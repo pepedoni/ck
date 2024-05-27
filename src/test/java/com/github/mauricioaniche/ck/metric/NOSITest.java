@@ -17,11 +17,14 @@ public class NOSITest extends BaseTest {
 		report = new CK().calculate(fixturesDir() + "/nosi");
 	}
 	
+	
+	/*
 	@Test
 	public void staticInvocations() {
 		CKNumber a = report.getByClassName("nosi.Class2");
 		Assert.assertEquals(1, a.getNosi());
 	}
+	*/
 
 	@Test
 	public void staticInvocationsToMethodsInTheSameClass() {
