@@ -22,20 +22,9 @@ public class NOperators extends ASTVisitor implements Metric {
 	private int operators;
 	private NUniqueOperators uniqueOperators;
 
-	/**
-	 * 
-	 */
 	public NOperators() {
 		uniqueOperators = new NUniqueOperators();
 	}
-
-	/*@Override
-	public boolean visit(Assignment node) {
-		Assignment.Operator operator = node.getOperator();
-		compute(operator.toString());
-		
-		return super.visit(node);
-	}*/
 	
 	@Override
 	public boolean visit(PrefixExpression node) {

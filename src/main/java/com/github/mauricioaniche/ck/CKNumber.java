@@ -77,7 +77,7 @@ public class CKNumber {
 		this.className = className;
 		this.type = type;
 
-		this.specific = new HashMap<String, Integer>();
+		this.specific = new HashMap<>();
 		
 		df = new DecimalFormat("#.####");
 		df.setRoundingMode(RoundingMode.CEILING);
@@ -116,7 +116,6 @@ public class CKNumber {
 		if(Double.isNaN(value) || Double.isInfinite(value))
 			value = 0.0;
 			
-		//return Double.valueOf(df.format(value));
 		return value;
 	}
 	

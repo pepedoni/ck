@@ -31,7 +31,7 @@ import com.github.mauricioaniche.ck.CKReport;
 
 public class CBO extends ASTVisitor implements Metric {
 
-	private Set<String> coupling = new HashSet<String>();
+	private Set<String> coupling = new HashSet<>();
 	private List<String> packageReferences = new ArrayList<>();
 
 	@Override

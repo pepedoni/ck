@@ -20,7 +20,6 @@ public class ProgramVolume implements ComposedMetric {
 	@Override
 	public void update(CKReport report) {
 		
-		//TODO use pl and pv, but make sure they were previously computed
 		for (CKNumber ck : report.all()) {
 			int pl = ck.getNOperands() + ck.getNOperators();
 			int pv = ck.getNUniqueOperands() + ck.getNUniqueOperators();

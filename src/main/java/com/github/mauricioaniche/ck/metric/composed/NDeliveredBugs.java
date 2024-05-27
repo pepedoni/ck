@@ -19,7 +19,7 @@ public class NDeliveredBugs implements ComposedMetric {
 		for (CKNumber ck : report.all()) {
 			double ndb = 0.0;
 			try {
-				ndb = (double) (Math.pow(ck.getEffort(),(2/3))) / 3000;
+				ndb = (Math.pow(ck.getEffort(),(2/3))) / 3000;
 			} catch (Exception e) {
 				ndb = 0.0;
 			}

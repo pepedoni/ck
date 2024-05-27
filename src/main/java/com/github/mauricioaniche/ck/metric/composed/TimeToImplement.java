@@ -22,7 +22,7 @@ public class TimeToImplement implements ComposedMetric {
 
 			double t = 0.0;
 			try {
-				t = (double) ck.getEffort() / 18;
+				t = ck.getEffort() / 18;
 			} catch (Exception e) {
 				t = 0.0;
 			}

@@ -42,9 +42,4 @@ public class LOCCalculator {
 		return result.isEmpty();
 	}
 
-	public int getNoLines() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

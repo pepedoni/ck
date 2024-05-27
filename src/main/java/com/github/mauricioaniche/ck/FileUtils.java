@@ -6,8 +6,12 @@ import java.util.ArrayList;
 
 public class FileUtils {
 
+	private FileUtils() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static String[] getAllDirs(String path) {
-		ArrayList<String> dirs = new ArrayList<String>();
+		ArrayList<String> dirs = new ArrayList<>();
 		getAllDirs(path, dirs);
 		
 		String[] ar = new String[dirs.size()];
@@ -30,7 +34,7 @@ public class FileUtils {
 	}
 
 	public static String[] getAllJavaFiles(String path) {
-		ArrayList<String> files = new ArrayList<String>();
+		ArrayList<String> files = new ArrayList<>();
 		getAllJavaFiles(path, files);
 		
 		String[] ar = new String[files.size()];

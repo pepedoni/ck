@@ -21,7 +21,7 @@ public class Maintainability implements ComposedMetric {
 		for (CKNumber ck : report.all()) {
 			double mi = 0.0;
 			try {
-				mi = (double) 171 - 5.2 * Math.log(ck.getProgramVolume()) - 0.23 * ck.getWMC()
+				mi = 171 - 5.2 * Math.log(ck.getProgramVolume()) - 0.23 * ck.getWMC()
 						- 16.2 * Math.log(ck.getLoc());
 			} catch (Exception e) {
 				mi = 0.0;

@@ -19,15 +19,16 @@ import com.github.mauricioaniche.ck.CKReport;
 
 public class LCOM extends ASTVisitor implements Metric {
 
-	ArrayList<TreeSet<String>> methods = new ArrayList<TreeSet<String>>();
+	ArrayList<TreeSet<String>> methods = new ArrayList<>();
 	Set<String> declaredFields;
 	private Map<String, Integer> fieldsNMethods;
 
 	public LCOM() {
-		this.declaredFields = new HashSet<String>();
+		this.declaredFields = new HashSet<>();
 		this.fieldsNMethods = new HashMap<>();
 	}
 
+	@Override
 	public boolean visit(FieldDeclaration node) {
 
 		for (Object o : node.fragments()) {
@@ -39,6 +40,7 @@ public class LCOM extends ASTVisitor implements Metric {
 		return super.visit(node);
 	}
 
+	@Override
 	public boolean visit(SimpleName node) {
 		String name = node.getFullyQualifiedName();
 		if (declaredFields.contains(name)) {
@@ -54,8 +56,9 @@ public class LCOM extends ASTVisitor implements Metric {
 		}
 	}
 
+	@Override
 	public boolean visit(MethodDeclaration node) {
-		methods.add(new TreeSet<String>());
+		methods.add(new TreeSet<>());
 
 		return super.visit(node);
 	}
@@ -92,7 +95,7 @@ public class LCOM extends ASTVisitor implements Metric {
 
 				TreeSet<?> intersection = (TreeSet<?>) methods.get(i).clone();
 				intersection.retainAll(methods.get(j));
-				if (intersection.size() == 0) {
+				if (intersection.isEmpty()) {
 					lcom1++;
 					lcom2++;
 				} else {

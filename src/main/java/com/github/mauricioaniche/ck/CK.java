@@ -11,6 +11,7 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 
+import com.github.mauricioaniche.ck.exceptions.InvalidUserMetricsException;
 import com.github.mauricioaniche.ck.metric.CBO;
 import com.github.mauricioaniche.ck.metric.DIT;
 import com.github.mauricioaniche.ck.metric.LCOM;
@@ -82,10 +83,25 @@ public class CK {
 	}
 
 	private final NOCExtras extras;
-	public List<ComposedMetric> composedMetrics;
-
-	public List<Callable<Metric>> pluggedMetrics;
+	private List<ComposedMetric> composedMetrics;
+	private List<Callable<Metric>> pluggedMetrics;
 	private static Logger log = Logger.getLogger(CK.class);
+
+	public void setPluggedMetrics(List<Callable<Metric>> pluggedMetrics) {
+		this.pluggedMetrics = pluggedMetrics;
+	}
+
+	public List<ComposedMetric> getComposedMetrics() {
+		return composedMetrics;
+	}
+
+	public void setComposedMetrics(List<ComposedMetric> composedMetrics) {
+		this.composedMetrics = composedMetrics;
+	}
+
+	public List<Callable<Metric>> getPluggedMetrics() {
+		return pluggedMetrics;
+	}
 
 	public CK() {
 		this.pluggedMetrics = new ArrayList<>();
@@ -158,7 +174,7 @@ public class CK {
 
 	private List<Metric> userMetrics() {
 		try {
-			List<Metric> userMetrics = new ArrayList<Metric>();
+			List<Metric> userMetrics = new ArrayList<>();
 
 			for (Callable<Metric> metricToBeCreated : pluggedMetrics) {
 				userMetrics.add(metricToBeCreated.call());
@@ -166,7 +182,7 @@ public class CK {
 
 			return userMetrics;
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			throw new InvalidUserMetricsException(e.getMessage());
 		}
 	}
 

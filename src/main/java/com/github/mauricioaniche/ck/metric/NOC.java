@@ -38,5 +38,6 @@ public class NOC extends ASTVisitor implements Metric {
 
 	@Override
 	public void setResult(CKNumber result) {
+		// setResult not implemented yet
 	}
 }

@@ -17,7 +17,7 @@ public class CommentsRatio implements ComposedMetric {
 		for (CKNumber ck : report.all()) {
 			double ratio = 0.0;
 			try {
-				ratio = (double)(ck.getNComments() / ck.getLoc()) * 100; 
+				ratio = ((double) ck.getNComments() / ck.getLoc()) * 100; 
 			} catch (Exception e) {
 				ratio = 0.0;
 			}

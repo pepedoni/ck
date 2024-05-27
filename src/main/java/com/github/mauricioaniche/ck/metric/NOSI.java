@@ -13,6 +13,7 @@ public class NOSI extends ASTVisitor implements Metric {
 
 	private int count = 0;
 
+	@Override
 	public boolean visit(MethodInvocation node) {
 
 		IMethodBinding binding = node.resolveMethodBinding();
